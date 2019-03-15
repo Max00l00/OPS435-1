@@ -24,7 +24,8 @@ def get_login_rec():
     '''
 
     login_recs = []
-    last_command = last -Fiw
+    last = last -Fiw
+    f = subprocess.popen
 
     return login_recs
 
