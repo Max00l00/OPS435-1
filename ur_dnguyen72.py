@@ -2,9 +2,9 @@
 '''
 OPS435 Assignment 2 - Winter 2019
 Program: ur_[dnguyen72].py
-Author: "David Nguyen"
+Author: 'David Nguyen'
 The python code in this file ur_[dguyen72].py is original work written by
-"Student Name". No code in this file is copied from any other source
+'Student Name'. No code in this file is copied from any other source
 including any person, textbook, or on-line resource except those provided
 by the course instructor. I have not shared this python file with anyone
 or anything except for submission for grading.
@@ -16,6 +16,7 @@ import argparse
 import os
 import sys
 import time
+
 
 def get_login_rec():
     """
@@ -42,13 +43,32 @@ def read_login_rec(filelist):
 
     x = open(filelist, 'r')
     login_recs = x.readlines()
-
+    x.close()
     return login_recs
 
+def cal_daily_usage(subject, login_recs):
+    title = 'Daily usage report for ' + str(subject)
+    print(title)
+    print(str(len(title)*'='))
+    print('{:13} {:>13}'.format('Date', 'Usage in seconds'))
+
+
+
+
+def cal_weekly_usage(subject, login_recs):
+    title = 'Weekly usage report for ' + str(subject)
+    print(title)
+    print(str(len(title)*'='))
+    print('{:12} {:>12}'.format('Week #', 'Usage in seconds'))
+
+def cal_monthly_usage(subject, login_recs):
+    title = 'Monthly usage report for ' + str(subject)
+    print(title)
+    print(str(len(title)*'='))
+    print('{:11} {:>11}'.format('Month', 'Usage in seconds'))
 
 if __name__ == '__main__':
-    ''' docstring for this function
-    generate monthly usage report fro the given
+    ''' docstring for this function generate monthly usage report fro the given
     subject (user or remote host)
     '''
 
@@ -76,4 +96,10 @@ if __name__ == '__main__':
             print('Generating list for user')
 
         else:
-            print('usage report for user: ' + subject)
+            if args.rhost:
+                print('usage report for remote host: ' + args.rhost)
+            if args.user:
+                print('usage report for user: ' + args.user)
+            print('usage report type:', args.type)
+            print('processing usage report for the following:')
+            print('reading login/logout record files', args.filename)
