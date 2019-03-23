@@ -107,6 +107,7 @@ if __name__ == '__main__':
     if args.list:
         print(str(args.list) + ' list for ' + args.filename)
         print(len(str(args.list) + ' list for ' + args.filename) * '=')
+        print(list(map()))
 
     elif args.type:
         print(args.type + ' usage report for ' + args.user or args.rhost)
