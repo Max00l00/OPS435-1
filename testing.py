@@ -27,5 +27,5 @@ def get_usernames(login_rec):
     return username_list
 
 if __name__ == '__main__':
-    print(*sorted(get_usernames(get_login_rec())))
+    print(*sorted(get_usernames(get_login_rec())),sep="\n")
     print()
