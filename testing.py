@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 
-<<<<<<< HEAD
-import sys
-
-filelist = sys.argv[1]
-
-=======
-import os
->>>>>>> origin/master
-
 def get_login_rec():
     """
     The get_login_rec function will run when no file name is given but instead the
@@ -24,8 +15,10 @@ def get_login_rec():
     for item in results:
         if len(item.split()) == 15:
             login_recs.append(item)
-    return login_recs
+
+    for item in login_recs:
+        print(item)
 
 if __name__ == '__main__':
-    print(get_login_rec())
+    get_login_rec()
 
