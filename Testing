@@ -1,1 +1,19 @@
-Big Booty Bitches
+#!/usr/bin/env python3
+
+import sys
+
+filelist = sys.argv[1]
+
+def read_login_rec(filelist):
+    """
+    The read_login_rec takes one argument being a given log file name. The function will
+    an unformatted list from the data from the the given file.
+    """
+
+    x = open(filelist, 'r')
+    login_recs = x.readlines()
+    x.close()
+    return login_recs
+
+if __name__ == '__main__':
+    print(read_login_rec(filelist))
