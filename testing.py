@@ -17,10 +17,15 @@ def get_login_rec():
     for item in results:
         if len(item.split()) == 15:
             login_recs.append(item)
+    return login_recs
 
-    for item in login_recs:
-        print(item)
+def get_usernames(login_rec):
+
+    username_list = []
+    for item in login_rec:
+        username_list.append(item.split()[0])
+    return username_list
 
 if __name__ == '__main__':
-    get_login_rec()
+    print(get_usernames(get_login_rec()))
 
