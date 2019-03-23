@@ -27,6 +27,4 @@ def get_usernames(login_rec):
     return username_list
 
 if __name__ == '__main__':
-    print(str(args.list) + ' list for ' + args.filename)
-    print(len(str(args.list) + ' list for ' + args.filename) * '=')
     print(get_login_rec())
