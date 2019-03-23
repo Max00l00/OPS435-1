@@ -45,23 +45,17 @@ def read_login_rec(filelist):
     x = open(filelist, 'r')
     login_recs = x.readlines()
     x.close()
-    return login_recs
-
-
-def cal_daily_usage(subject, login_recs):
-    """
-    This function accepts two arguments, the first being the subject and the second being
-    a list. The subject can be either a username or a ip address of a remote host. The
-    function will then generate and return a daily usage report as well as the total daily usage.
-    """
-
-
-
-def cal_weekly_usage(subject, login_recs):
-
-
-def cal_monthly_usage(subject, login_recs):
-
+    filtered_recs = []
+    if args.list:
+        if args.user:
+            for item in login_recs:
+                filtered_recs.append(item.split()[0])  # Grab only user names
+        if args.rhost:
+            for item in login_recs:
+                filtered_recs.append(item.split()[2])  # Grab only remote host IPs
+        return filtered_recs
+    else:
+        return login_recs
 
 
 if __name__ == '__main__':
@@ -107,17 +101,17 @@ if __name__ == '__main__':
     if args.list:
         print(str(args.list) + ' list for ' + args.filename)
         print(len(str(args.list) + ' list for ' + args.filename) * '=')
-        print(list(map()))
+        print(read_login_rec(args.filename))
 
     elif args.type:
         print(args.type + ' usage report for ' + args.user or args.rhost)
         print(len(args.type + ' usage report for ' + args.user or args.rhost) * '=')
         if args.type == 'daily':
             print('{:13} {:>13}'.format('Date', 'Usage in seconds'))
-            print(cal_daily_usage(args.rhost or args.user, unformatted_login_recs))
+        #            print(cal_daily_usage(args.rhost or args.user, unformatted_login_recs))
         elif args.type == 'weekly':
             print('{:12} {:>12}'.format('Week #', 'Usage in seconds'))
-            print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
+        #            print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
         elif args.type == 'monthly':
             print('{:11} {:>11}'.format('Month', 'Usage in seconds'))
-            print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
+        #           print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
