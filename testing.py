@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
+<<<<<<< HEAD
 import sys
 
 filelist = sys.argv[1]
 
+=======
+import os
+>>>>>>> origin/master
 
 def get_login_rec():
     """
