@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
-import sys
-
-filelist = sys.argv[1]
-
+import os
 
 def get_login_rec():
     """
