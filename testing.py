@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import os
+
 def get_login_rec():
     """
     The get_login_rec function will run when no file name is given but instead the
