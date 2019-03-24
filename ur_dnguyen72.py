@@ -79,7 +79,7 @@ if __name__ == '__main__':
     if "last" in args.filename:
         unformatted_login_recs.extend(get_login_rec())
     else:
-        print(args.filename)
+        print(args.filename[0])
         exit()
         #unformatted_login_recs.extend(read_login_rec(args.filename))
 
