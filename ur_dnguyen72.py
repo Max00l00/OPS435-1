@@ -53,9 +53,9 @@ def read_login_rec(filelist):
         if args.rhost:
             for item in login_recs:
                 filtered_recs.append(item.split()[2])  # Grab only remote host IPs
-        return filtered_recs
+        return set(filtered_recs)
     else:
-        return login_recs
+        return set(login_recs)
 
 
 if __name__ == '__main__':
