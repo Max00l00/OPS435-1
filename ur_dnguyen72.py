@@ -102,8 +102,6 @@ if __name__ == '__main__':
     if args.list:
         print(args.list.title() + ' list for ' + args.filename[0])
         print(len(str(args.list) + ' list for ' + args.filename[0]) * '=')
-        print(unformatted_login_recs)
-        exit()
         print(*sorted(read_login_rec(unformatted_login_recs)), sep="\n")
 
     elif args.type:
