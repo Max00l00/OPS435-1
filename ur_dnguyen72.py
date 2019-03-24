@@ -79,7 +79,9 @@ if __name__ == '__main__':
     if "last" in args.filename:
         unformatted_login_recs.extend(get_login_rec())
     else:
-        unformatted_login_recs.extend(read_login_rec(args.filename))
+        print(args.filename)
+        exit()
+        #unformatted_login_recs.extend(read_login_rec(args.filename))
 
     if args.verbose:
         print('Files to be processed: ' + args.filename)
@@ -101,7 +103,7 @@ if __name__ == '__main__':
     if args.list:
         print(str(args.list) + ' list for ' + args.filename)
         print(len(str(args.list) + ' list for ' + args.filename) * '=')
-        print(read_login_rec(args.filename))
+        print(read_login_rec(unformatted_login_recs))
 
     elif args.type:
         print(args.type + ' usage report for ' + args.user or args.rhost)
