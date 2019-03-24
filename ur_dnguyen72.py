@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
     if args.verbose:
         print('Files to be processed: ' + args.filename[0])
-        print('Type of args for files' + type(args.filename[0]))
+        print('Type of args for files' + str(type(args.filename[0])))
 
         if args.list:
             print('processing usage report for the following:')
