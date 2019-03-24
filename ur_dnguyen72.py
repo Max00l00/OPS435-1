@@ -82,12 +82,12 @@ if __name__ == '__main__':
         unformatted_login_recs.extend(read_login_rec(args.filename[0]))
 
     if args.verbose:
-        print('Files to be processed: ' + args.filename)
-        print('Type of args for files' + type(args.filename))
+        print('Files to be processed: ' + args.filename[0])
+        print('Type of args for files' + type(args.filename[0]))
 
         if args.list:
             print('processing usage report for the following:')
-            print('reading login/logout record files ' + args.filename)
+            print('reading login/logout record files ' + args.filename[0])
             print('Generating list for user')
         else:
             if args.rhost:
@@ -96,11 +96,11 @@ if __name__ == '__main__':
                 print('usage report for user: ' + args.user)
             print('usage report type:', args.type)
             print('processing usage report for the following:')
-            print('reading login/logout record files', args.filename)
+            print('reading login/logout record files', args.filename[0])
 
     if args.list:
         print(args.list + ' list for ' + args.filename[0])
-        print(len(str(args.list) + ' list for ' + args.filename) * '=')
+        print(len(str(args.list) + ' list for ' + args.filename[0]) * '=')
         print(*sorted(read_login_rec(unformatted_login_recs)), sep="\n")
 
     elif args.type:
