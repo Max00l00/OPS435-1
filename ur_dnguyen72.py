@@ -99,7 +99,7 @@ if __name__ == '__main__':
             print('reading login/logout record files', args.filename)
 
     if args.list:
-        print(args.list)
+        print(type(args.list))
         exit()
         print(str(args.list[0]) + ' list for ' + args.filename)
         print(len(str(args.list) + ' list for ' + args.filename) * '=')
