@@ -80,7 +80,7 @@ if __name__ == '__main__':
         unformatted_login_recs.extend(get_login_rec())
     else:
         unformatted_login_recs.extend(read_login_rec(args.filename[0]))
-        print(unformatted_login_recs)
+        print(args.list)
         exit()
 
     if args.verbose:
