@@ -99,7 +99,7 @@ if __name__ == '__main__':
             print('reading login/logout record files', args.filename)
 
     if args.list:
-        print(args.list + ' list for ' + args.filename)
+        print(args.list + ' list for ' + args.filename[0])
         print(len(str(args.list) + ' list for ' + args.filename) * '=')
         print(*sorted(read_login_rec(unformatted_login_recs)), sep="\n")
 
