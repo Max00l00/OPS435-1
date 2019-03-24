@@ -47,12 +47,12 @@ def read_login_rec(filelist):
     x.close()
     filtered_recs = []
     if args.list:
-        if args.user:
+        if args.list == 'user':
             for item in login_recs:
                 filtered_recs.append(item.split()[0])  # Grab only user names
-        if args.rhost:
+        if args.list == 'host':
             for item in login_recs:
-                filtered_recs.append(item.split()[2])  # Grab only remote host IPs
+                filtered_recs.append(item.split()[2])  # Grab only host IPs
         return set(filtered_recs)
     else:
         return set(login_recs)
