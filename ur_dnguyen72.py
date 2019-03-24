@@ -101,7 +101,7 @@ if __name__ == '__main__':
     if args.list:
         print(args.list + ' list for ' + args.filename[0])
         print(len(str(args.list) + ' list for ' + args.filename[0]) * '=')
-        print(*sorted(read_login_rec(unformatted_login_recs)), sep="\n")
+        print(read_login_rec(unformatted_login_recs))
 
     elif args.type:
         print(args.type + ' usage report for ' + args.user or args.rhost)
