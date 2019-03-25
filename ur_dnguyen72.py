@@ -100,8 +100,8 @@ if __name__ == '__main__':
             print('reading login/logout record files', str(args.filename))
 
     if args.list:
-        print(args.list.title() + ' list for', ' '.join(args.filename))
-        print(len(str(args.list) + ' list for ' + str(args.filename)) * '=')
+        print(args.list.title() + ' list for ' + ''.join(args.filename))
+        print(len(str(args.list) + ' list for ' + ''.join(args.filename)) * '=')
         print(*sorted(unformatted_login_recs), sep="\n")
 
     if args.type:
