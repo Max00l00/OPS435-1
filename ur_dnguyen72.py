@@ -113,4 +113,5 @@ if __name__ == '__main__':
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
         for item in unformatted_login_recs:
             print(item + '\n')
+            print('hello')
         exit()
