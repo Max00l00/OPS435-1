@@ -80,7 +80,7 @@ if __name__ == '__main__':
         unformatted_login_recs.extend(get_login_rec())
     else:
         for item in args.filename:
-            unformatted_login_recs.extend(read_login_rec(str(args.filename)))
+            unformatted_login_recs.extend(read_login_rec(item))
 
     if args.verbose:
         print('Files to be processed: ' + str(args.filename))
