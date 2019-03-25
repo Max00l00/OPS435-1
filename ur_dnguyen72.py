@@ -58,11 +58,6 @@ def read_login_rec(filelist):
     else:
         return set(login_recs)
 
-def cal_daily_usage(subject, login_recs):
-
-
-
-
 if __name__ == '__main__':
 
     # Arguments
