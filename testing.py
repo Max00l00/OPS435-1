@@ -20,12 +20,8 @@ def read_login_rec(filelist):
                 filtered_recs.append(item.split()[2])  # Filter only host IPs
         return set(filtered_recs)
 
-    elif args.type:                                    # TYPE OPTION
-
-
     else:
         return set(login_recs)
-
 
 if __name__ == '__main__':
 
@@ -45,9 +41,6 @@ if __name__ == '__main__':
 
     unformatted_login_recs = []
 
-    if "last" in args.filename:
-        unformatted_login_recs.extend(get_login_rec())
-    else:
         for item in args.filename:
             unformatted_login_recs.extend(read_login_rec(args.filename[0]))
 
