@@ -111,13 +111,4 @@ if __name__ == '__main__':
         print(len(args.type + ' usage report for ' + str(args.user or args.rhost)) * '=')
         time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
-        exit(print('Bye Bye'))
-        if args.type == 'daily':
-            print('{:13} {:>13}'.format('Date', 'Usage in seconds'))
-        #            print(cal_daily_usage(args.rhost or args.user, unformatted_login_recs))
-        elif args.type == 'weekly':
-            print('{:12} {:>12}'.format('Week #', 'Usage in seconds'))
-        #            print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
-        elif args.type == 'monthly':
-            print('{:11} {:>11}'.format('Month', 'Usage in seconds'))
-        #           print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
+        exit()
