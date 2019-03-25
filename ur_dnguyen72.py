@@ -105,8 +105,8 @@ if __name__ == '__main__':
         print(*sorted(unformatted_login_recs), sep="\n")
 
     if args.type:
-        print(args.type + ' usage report for ' + args.user or args.rhost)
-        print(len(args.type.title() + ' usage report for ' + args.user or args.rhost) * '=')
+        print(args.type.title() + ' usage report for ' + args.user or args.rhost)
+        print(len(args.type + ' usage report for ' + args.user or args.rhost) * '=')
         if args.type == 'daily':
             print('{:13} {:>13}'.format('Date', 'Usage in seconds'))
         #            print(cal_daily_usage(args.rhost or args.user, unformatted_login_recs))
