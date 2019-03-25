@@ -108,6 +108,7 @@ if __name__ == '__main__':
 
     if args.type:
         print(args.type.title() + ' usage report for ' + str(args.user or args.rhost))
+        exit()
         print(len(args.type + ' usage report for ' + (args.user or args.rhost) * '='))
         if args.type == 'daily':
             print('{:13} {:>13}'.format('Date', 'Usage in seconds'))
