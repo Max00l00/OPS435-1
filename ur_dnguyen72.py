@@ -54,7 +54,7 @@ def read_login_rec(filelist):
         if args.list == 'host':
             for item in login_recs:
                 filtered_recs.append(item.split()[2])  # Grab only host IPs
-        return set(login_recs)
+        return set(filtered_recs)
     else:
         return set(login_recs)
 
