@@ -107,8 +107,6 @@ if __name__ == '__main__':
         print(*sorted(unformatted_login_recs), sep="\n")
 
     if args.type:
-        print(args.rhost)
-        exit()
         print(args.type.title() + ' usage report for ' + args.user or args.rhost)
         print(len(args.type + ' usage report for ' + args.user or args.rhost) * '=')
         if args.type == 'daily':
