@@ -69,15 +69,4 @@ if __name__ == '__main__':
             print('reading login/logout record files', str(args.filename))
 
     if args.type:
-        time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
-        print(args.type + ' usage report for ' + args.user or args.rhost)
-        print(len(args.type + ' usage report for ' + args.user or args.rhost) * '=')
-        if args.type == 'daily':
-            print('{:13} {:>13}'.format('Date', 'Usage in seconds'))
-        #            print(cal_daily_usage(args.rhost or args.user, unformatted_login_recs))
-        elif args.type == 'weekly':
-            print('{:12} {:>12}'.format('Week #', 'Usage in seconds'))
-        #            print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
-        elif args.type == 'monthly':
-            print('{:11} {:>11}'.format('Month', 'Usage in seconds'))
-        #           print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
+        print(unformatted_login_recs)
