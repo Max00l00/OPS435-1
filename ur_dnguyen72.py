@@ -111,5 +111,6 @@ if __name__ == '__main__':
         print(len(args.type + ' usage report for ' + str(args.user or args.rhost)) * '=')
         time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
-        print(unformatted_login_recs)
+        for item in unformatted_login_recs:
+            print(item + '\n')
         exit()
