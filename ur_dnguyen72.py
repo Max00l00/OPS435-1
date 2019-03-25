@@ -113,9 +113,3 @@ if __name__ == '__main__':
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
         print(unformatted_login_recs)
         exit()
-        if args.type == 'daily':
-        #            print(cal_daily_usage(args.rhost or args.user, unformatted_login_recs))
-        elif args.type == 'weekly':
-        #            print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
-        elif args.type == 'monthly':
-        #           print(cal_monthly_usage(args.rhost or args.user, unformatted_login_recs))
