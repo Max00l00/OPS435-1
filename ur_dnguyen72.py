@@ -101,8 +101,7 @@ if __name__ == '__main__':
 
     if args.list:
         print(args.list.title() + ' list for ' + str(args.filename))
-
-        #print(len(str(args.list) + ' list for ' + args.filename) * '=')
+        print(len(str(args.list) + ' list for ' + str(args.filename)) * '=')
         #print(*sorted(unformatted_login_recs), sep="\n")
 
     if args.type:
