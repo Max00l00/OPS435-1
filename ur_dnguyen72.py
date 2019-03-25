@@ -58,8 +58,13 @@ def read_login_rec(filelist):
     else:
         return set(login_recs)
 
-def cal_daily_usage(subject, login_recs):
-
+def cal_daily_usage(login_recs):
+    record_list = []
+    for item in login_recs:
+        time1 = time.strptime(' '.join(item.split()[3:8]), "%a %b %d %H:%M:%S %Y")  # Conver to struc_time
+        time2 = time.strptime(' '.join(item.split()[9:14]), "%a %b %d %H:%M:%S %Y")
+        print(time1)
+        print(time2)
 
 if __name__ == '__main__':
 
