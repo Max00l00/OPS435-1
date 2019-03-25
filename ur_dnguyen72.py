@@ -46,6 +46,7 @@ def read_login_rec(filelist):
     login_recs = x.readlines()
     x.close()
     filtered_recs = []
+
     if args.list:
         if args.list == 'user':
             for item in login_recs:
@@ -56,6 +57,7 @@ def read_login_rec(filelist):
         return set(filtered_recs)
     else:
         return set(login_recs)
+
 
 
 if __name__ == '__main__':

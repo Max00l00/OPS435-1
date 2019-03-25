@@ -10,14 +10,19 @@ def read_login_rec(filelist):
     login_recs = x.readlines()
     x.close()
     filtered_recs = []
-    if args.list:
+
+    if args.list:                                      # LIST OPTION
         if args.list == 'user':
             for item in login_recs:
-                filtered_recs.append(item.split()[0])  # Grab only user names
+                filtered_recs.append(item.split()[0])  # Filter only user names
         if args.list == 'host':
             for item in login_recs:
-                filtered_recs.append(item.split()[2])  # Grab only host IPs
+                filtered_recs.append(item.split()[2])  # Filter only host IPs
         return set(filtered_recs)
+
+    elif args.type:                                    # TYPE OPTION
+
+
     else:
         return set(login_recs)
 
@@ -64,6 +69,7 @@ if __name__ == '__main__':
             print('reading login/logout record files', str(args.filename))
 
     if args.type:
+        time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print(args.type + ' usage report for ' + args.user or args.rhost)
         print(len(args.type + ' usage report for ' + args.user or args.rhost) * '=')
         if args.type == 'daily':
