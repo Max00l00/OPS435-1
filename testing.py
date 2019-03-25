@@ -41,8 +41,8 @@ if __name__ == '__main__':
 
     unformatted_login_recs = []
 
-        for item in args.filename:
-            unformatted_login_recs.extend(read_login_rec(args.filename[0]))
+    for item in args.filename:
+        unformatted_login_recs.extend(read_login_rec(args.filename[0]))
 
     if args.verbose:
         print('Files to be processed: ' + str(args.filename))
