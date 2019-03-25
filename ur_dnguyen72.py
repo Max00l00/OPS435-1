@@ -54,9 +54,12 @@ def read_login_rec(filelist):
         if args.list == 'host':
             for item in login_recs:
                 filtered_recs.append(item.split()[2])  # Grab only host IPs
-        return set(filtered_recs)
+        return set(login_recs)
     else:
         return set(login_recs)
+
+def cal_daily_usage(subject, login_recs):
+
 
 
 
@@ -102,8 +105,8 @@ if __name__ == '__main__':
             print('reading login/logout record files', str(args.filename))
 
     if args.list:
-        print(args.list.title() + ' list for ' + args.filename[0])
-        print(len(str(args.list) + ' list for ' + args.filename[0]) * '=')
+        print(args.list.title() + ' list for ' + args.filename)
+        print(len(str(args.list) + ' list for ' + args.filename) * '=')
         print(*sorted(unformatted_login_recs), sep="\n")
 
     if args.type:
@@ -113,5 +116,4 @@ if __name__ == '__main__':
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
         for item in unformatted_login_recs:
             print(item + '\n')
-            print('hello')
-        exit()
+        print(cal_daily_usage(args.user or args.rhost, unformatted_login_recs), sep= "\n")
