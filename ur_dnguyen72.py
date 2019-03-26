@@ -68,7 +68,7 @@ def cal_daily_usage(login_recs):
 
         if doy1 == doy2:  # if same day in a year
             record_list.append(item.split())  # save the record to list
-         else:  # this works even jump to many days
+        else:  # this works even jump to many days
             next_day = time.mktime(time1)  # float number
             print(next_day)
 
