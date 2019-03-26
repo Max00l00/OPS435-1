@@ -63,8 +63,12 @@ def cal_daily_usage(login_recs):
     for item in login_recs:
         time1 = time.strptime(' '.join(item.split()[3:8]), "%a %b %d %H:%M:%S %Y")  # Conver to struc_time
         time2 = time.strptime(' '.join(item.split()[9:14]), "%a %b %d %H:%M:%S %Y")
-        print(time1)
-        print(time2)
+        doy1 = time.strftime("%j", time1)  # return day of year
+        doy2 = time.strftime("%j", time2)
+
+        if doy1 == doy2:  # if same day in a year
+            record_list.append(item.split())  # save the record to list
+            print(record_list)
 
 if __name__ == '__main__':
 
