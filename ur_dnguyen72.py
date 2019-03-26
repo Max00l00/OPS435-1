@@ -58,20 +58,45 @@ def read_login_rec(filelist):
     else:
         return set(login_recs)
 
-def cal_daily_usage(login_recs):
-    record_list = []
+def group_days(login_recs):
+    '''
+    The group days accepts one argument being the login records from the read_login_rec() function. This function will
+    read the data from the login records and convert all records where the login and logout times are on differing days
+    to the same day. The function will append the conversion to a new list and return it.
+    '''
+
+    login_recs_formatted = []
     for item in login_recs:
-        time1 = time.strptime(' '.join(item.split()[3:8]), "%a %b %d %H:%M:%S %Y")  # Conver to struc_time
-        time2 = time.strptime(' '.join(item.split()[9:14]), "%a %b %d %H:%M:%S %Y")
-        doy1 = time.strftime("%j", time1)  # return day of year
-        doy2 = time.strftime("%j", time2)
 
-        if doy1 == doy2:  # if same day in a year
-            record_list.append(item.split())  # save the record to list
-        else:  # this works even jump to many days
-            next_day = time.mktime(time1)  # float number
-            print(next_day)
+        # Convert login/logout times to STRUCTURED time
+        login_time = time.strptime(' '.join(item.split()[3:8]), "%a %b %d %H:%M:%S %Y")
+        logout_time = time.strptime(' '.join(item.split()[9:14]), "%a %b %d %H:%M:%S %Y")
 
+        # Get day of year from login/logout time
+        login_doy = time.strftime("%j", login_time)
+        logout_doy = time.strftime("j", logout_time)
+
+        # If login & logout times are on same day
+        if login_doy == logout_doy:
+            login_recs.append(item.split())     # Add the record to list
+
+        # If login & logout times are on different days
+        else:
+            login_time_in_secs = time.mktime(login_time)    # Convert login time to a float number
+            eod_time = time.ctime(login_time_in_secs).split()   # Convert back to original format
+
+            og_record = item.split()
+
+            # Change logout date to 23:59:59 on same day
+
+
+
+
+
+
+
+
+def cal_daily_usage(login_recs):
 
 if __name__ == '__main__':
 
