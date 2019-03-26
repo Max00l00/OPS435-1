@@ -118,4 +118,4 @@ if __name__ == '__main__':
         time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
         #print(cal_daily_usage(args.user or args.rhost, unformatted_login_recs), sep= "\n")
-        print(unformatted_login_recs)
+        cal_daily_usage(unformatted_login_recs)
