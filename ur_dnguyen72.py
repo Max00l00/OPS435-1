@@ -45,8 +45,9 @@ def read_login_rec(filelist):
     x = open(filelist, 'r')
     login_recs = x.readlines()
     x.close()
-    return login_recs
 
+    if args.list:
+        return *sorted(
 
 def cal_daily_usage(subject, login_recs):
     """
@@ -107,7 +108,7 @@ if __name__ == '__main__':
     if args.list:
         print(str(args.list) + ' list for ' + args.filename)
         print(len(str(args.list) + ' list for ' + args.filename) * '=')
-        print(list(map()))
+        print(*sorted(read_login_rec(args.filename)), sep="\n")
 
     elif args.type:
         print(args.type + ' usage report for ' + args.user or args.rhost)
