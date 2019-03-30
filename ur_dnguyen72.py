@@ -62,9 +62,9 @@ def read_login_rec(filelist):
         if args.list == 'host':
             for record in login_recs:
                 filtered_recs.append(record.split()[2])  # Grab only host IPs
-        return set(filtered_recs)
+        return filtered_recs
     else:
-        return set(login_recs)
+        return login_recs
 
 
 def convert_days(login_recs):
@@ -97,15 +97,15 @@ def convert_days(login_recs):
 
         #   If login/out is in same day
         if login_doy == logout_doy:
-            converted_record.append(item.split())
+            converted_record.append(record.split())
 
         #   If login/out are on different days
         else:
             # SEPARATE LOGIN DAY
             login_rec_float = time.mktime(login_rec)  # float number
             eod_data = time.ctime(login_rec_float).split()  # End of day data
-            new_login_day = item.split()
-            new_login_day[9:11] = eod_data[0:2]
+            new_login_day = record.split()
+            new_login_day[9:12] = eod_data[0:3]
             new_login_day[12] = '23:59:59'
             new_login_day[13] = eod_data[4]
             converted_record.append(new_login_day)
@@ -114,52 +114,43 @@ def convert_days(login_recs):
             while login_doy != logout_doy:
                 next_day = login_rec_float + 86400  # Add day
                 new_day_data = time.ctime(next_day).split()  # Start of Day
-                new_logout_day = item.split()
-                new_logout_day[3:5] = new_day_data[0:2]
+                new_logout_day = record.split()
+                new_logout_day[3:6] = new_day_data[0:3]
                 new_logout_day[6] = '00:00:00'
                 new_logout_day[7] = new_day_data[4]
                 login_doy = time.strftime('%j', time.localtime(next_day))
 
                 #   If Next Day != Logout Day after adding day
                 if login_doy != logout_doy:
-                    new_logout_day[9:11] = new_day_data[0:2]
+                    new_logout_day[9:12] = new_day_data[0:3]
                     new_logout_day[12] = '23:59:59'
                     new_logout_day[13] = new_day_data[4]
                 converted_record.append(new_logout_day)
     return converted_record
 
 
-def cal_usage(subject, login_recs):
+def cal_usage(subject, converted_record):
     total_usage = 0
     date_usage = {}
 
-    for record in login_recs:
-        if subject in item:
+    for record in converted_record:
+        if subject in record:
             time_pool = time.mktime(time.strptime(' '.join(record[9:14])))
             time_used = time.mktime(time.strptime(' '.join(record[3:8])))
             usage = int(time_pool - time_used)
             time_frame_format = {'daily': '%Y %m %d', 'weekly': '%Y %W', 'monthly': '%Y %m'}
-            time_format = time.strftime(time_frame_format[args.type], time.strptime(' '.join(item[9:14])))
+            time_format = time.strftime(time_frame_format[args.type], time.strptime(' '.join(record[9:14])))
 
             try:
                 date_usage[time_format] += usage
             except:
                 date_usage[time_format] = usage
             total_usage += usage
-
-
-
-def content(calculation):
-    """
-    content function accepts one argument which is the result of the daily,weekly,monthly function. It gets dictionary
-    and the total time. It sorts the key in the dictionary in reverse with text allignment and save it to the list.
-    """
-    ft = []
-    records, total = calculation
-    for key in sorted(records.keys(), reverse=True):
-        ft.append("{:<11s}{:>11d}".format(str(key), records[key]))
-    ft.append("{:<11s}{:>11d}".format("Total", total))
-    return ft
+    output = []
+    for key in sorted(date_usage.keys(), reverse=True):
+        output.append("{:<11s}{:>11d}".format(str(key), date_usage[key]))
+    output.append("{:<11s}{:>11d}".format("Total", total_usage))
+    return output
 
 
 if __name__ == '__main__':
@@ -183,8 +174,8 @@ if __name__ == '__main__':
     if "last" in args.filename:
         unformatted_login_recs.extend(get_login_rec())
     else:
-        for item in args.filename:
-            unformatted_login_recs.extend(read_login_rec(item))
+        for record in args.filename:
+            unformatted_login_recs.extend(read_login_rec(record))
 
     if args.verbose:
         print('Files to be processed: ' + str(args.filename))
@@ -213,5 +204,4 @@ if __name__ == '__main__':
         print(len(args.type + ' usage report for ' + str(args.user or args.rhost)) * '=')
         time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
-        print(*content(cal_usage(args.rhost or args.user, convert_days(unformatted_login_recs))), sep='\n')
-        print('boob')
+        print(*cal_usage(args.rhost or args.user, convert_days(unformatted_login_recs)), sep='\n')
