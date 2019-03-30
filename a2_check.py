@@ -50,6 +50,10 @@ if __name__ == '__main__':
         cmd_file ='wget https://scs.senecac.on.ca/~raymond.chan/ops435/a2/a2_test_run_2_results.txt'
         os.system(cmd_file)
 
+    if not os.path.isfile("a2_test_data_2"):
+        cmd_file ='wget https://scs.senecac.on.ca/~raymond.chan/ops435/a2/a2_test_data_2'
+        os.system(cmd_file)
+
     print(preliminary_grading(student))
     print('=' * 40)
     doc_marks = {} # data dictionary for documentation mark
