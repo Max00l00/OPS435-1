@@ -214,3 +214,4 @@ if __name__ == '__main__':
         time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
         print(*content(cal_usage(args.rhost or args.user, convert_days(unformatted_login_recs))), sep='\n')
+        print('boob')
