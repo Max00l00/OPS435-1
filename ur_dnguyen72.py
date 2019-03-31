@@ -200,7 +200,7 @@ if __name__ == '__main__':
         print(*sorted(unformatted_login_recs), sep="\n")
 
     if args.type:
-        print(args.type.title() + ' Usage report for ' + str(args.user or args.rhost))
+        print(args.type.title() + ' Usage Report for ' + str(args.user or args.rhost))
         print(len(args.type.title() + ' Usage Report for ' + str(args.user or args.rhost)) * '=')
         time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
