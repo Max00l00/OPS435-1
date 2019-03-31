@@ -62,9 +62,9 @@ def read_login_rec(filelist):
         if args.list == 'host':
             for record in login_recs:
                 filtered_recs.append(record.split()[2])  # Grab only host IPs
-        return filtered_recs
+        return set(filtered_recs)
     else:
-        return login_recs
+        return set(login_recs)
 
 
 def convert_days(login_recs):
