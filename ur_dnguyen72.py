@@ -187,7 +187,7 @@ if __name__ == '__main__':
             print('Generating list for ' + str(args.list))
         else:
             if args.rhost:
-                print('Usage Report for remote host: ' + str(args.rhost))
+                print('usage Report for remote host: ' + str(args.rhost))
             else:
                 print('usage report for user: ' + str(args.user))
             print('usage report type:', str(args.type))
