@@ -187,9 +187,9 @@ if __name__ == '__main__':
             print('Generating list for ' + str(args.list))
         else:
             if args.rhost:
-                print('usage report for remote host: ' + str(args.rhost))
+                print('Usage Report for remote host: ' + str(args.rhost))
             else:
-                print('usage report for user: ' + str(args.user))
+                print('Usage Report for user: ' + str(args.user))
             print('usage report type:', str(args.type))
             print('processing usage report for the following:')
             print('reading login/logout record files', str(args.filename))
@@ -201,7 +201,7 @@ if __name__ == '__main__':
 
     if args.type:
         print(args.type.title() + ' usage report for ' + str(args.user or args.rhost))
-        print(len(args.type + ' usage report for ' + str(args.user or args.rhost)) * '=')
+        print(len(args.type.title() + ' Usage Report for ' + str(args.user or args.rhost)) * '=')
         time_frame = {'daily': 'Date', 'weekly': 'Week #', 'monthly': 'Month'}
         print("{:<14s}{:>14s}".format(time_frame[args.type], "Usage in Seconds"))
         print(*cal_usage(args.rhost or args.user, convert_days(unformatted_login_recs)), sep='\n')
