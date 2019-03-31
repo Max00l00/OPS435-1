@@ -189,7 +189,7 @@ if __name__ == '__main__':
             if args.rhost:
                 print('Usage Report for remote host: ' + str(args.rhost))
             else:
-                print('Usage Report for user: ' + str(args.user))
+                print('usage report for user: ' + str(args.user))
             print('usage report type:', str(args.type))
             print('processing usage report for the following:')
             print('reading login/logout record files', str(args.filename))
