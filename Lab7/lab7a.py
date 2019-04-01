@@ -47,14 +47,10 @@ class Car:
 		self.model = str(model)
 		self.owner = str(owner)
 	def info(self):
-		results = 'Manufacturer: '
-		results += self.manufacturer
-		results += '\n'
-		results += 'Model:',self.model
-		results += '\n'
-		results += 'Car Owner:',self.owner
-		return results
-
-if __name__ == '__main__':
-
-	
+		result = 'Manufacturer: '
+		result += self.manufacturer
+		result += '\n'
+		result += 'Model:',self.model
+		result += '\n'
+		result += 'Car Owner:',self.owner
+		return result
