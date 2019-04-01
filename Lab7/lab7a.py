@@ -27,8 +27,9 @@ class Person:
 # Doesn't have to be BMW, pick any car or bike manufacturer:
 class BMWModel:
 	def __init__(self, model):
-		self.model = str(name)
+		self.model = str(model)
 		self.info = {}
+		self.info[model] = self.model
 
 	def add_seats(self, seats, number):
 		self.info[seats] = int(number)
@@ -46,8 +47,13 @@ class Car:
 		self.model = str(model)
 		self.owner = str(owner)
 	def info(self):
-		result = ''
-		results += self.manufacturer
-		results += self.model
-		results += self.owner
+		results = 'Manufacturer:',self.manufacturer
+		results += '\n'
+		results += 'Model:',self.model
+		results += '\n'
+		results += 'Car Owner:',self.owner
 		return results
+
+if __name__ == '__main__':
+
+	
