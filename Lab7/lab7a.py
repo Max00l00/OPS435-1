@@ -47,7 +47,8 @@ class Car:
 		self.model = str(model)
 		self.owner = str(owner)
 	def info(self):
-		results = 'Manufacturer:',self.manufacturer
+		results = 'Manufacturer: '
+		results += self.manufacturer
 		results += '\n'
 		results += 'Model:',self.model
 		results += '\n'
