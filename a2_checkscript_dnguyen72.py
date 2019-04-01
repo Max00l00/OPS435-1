@@ -19,7 +19,7 @@ import sys
 if __name__ == '__main__':
 	os.system('clear')
 	header = ('\r'+'==================================='+'\n'+'OPS435 Assignment 2 Checking Script'+
-		'\n'+'==================================='+'\n')
+		'\n'+'==================================='+'\n\n')
 	print(header, end='\r')
 	if len(sys.argv) != 2:
 		name = input('Please enter your senecaid: ')
@@ -27,10 +27,11 @@ if __name__ == '__main__':
 		name = sys.argv[1]
 	filename = 'ur_' + name + '.py'
 
+	################################################################
+
 	# Check if Assignment 2 file exists in current directory
-	if os.path.isfile('./'+filename):
-		print(header)
-		print('Your assignment 2 script is not located in the current directory.'+'\n\n'+
+	if os.path.isfile('./'+filename) == False:
+		print('\n'+'Your assignment 2 script is not located in the current directory.'+'\n\n'+
 			'Please move the assignent script to the same directory as the checking script and rerun','\n')
 		exit()
 
@@ -39,6 +40,35 @@ if __name__ == '__main__':
 		os.system('wget https://scs.senecac.on.ca/~raymond.chan/ops435/a2/a2_test_run_2_results.txt')
 	if os.path.isfile('./a2_test_data_2') == False:
 		os.system('wget https://scs.senecac.on.ca/~raymond.chan/ops435/a2/a2_test_data_2')
+	test_file = a2_test_data_2
+	test_results = a2_test_run_2_results
+
+	# Extract Test results 
+	f = open(test_results, 'r')
+	results = f.readlines()
+	f.close()
+	del results[0:36] # deleting un-needed text
+	os.system('rm -r ' + test_results) # remove file after extracting
+
+	# Extract test input commands
+	test_commands = []
+	for line in results:
+		if line.startswith('+'):
+			test_commands.append(line.strip('+'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
